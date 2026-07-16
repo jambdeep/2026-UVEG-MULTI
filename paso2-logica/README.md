@@ -1,7 +1,7 @@
 # Paso 2: La Lógica de la Aplicación
 
 ## 📝 ¿Qué hace esta sección?
-Aquí se define el "cerebro" y comportamiento de la app. Aprenderás a estructurar datos mediante TypeScript, crear un formulario reactivo con validaciones integradas y programar las funciones que manipulan las tareas de reparto[cite: 1].
+Aquí se define el "cerebro" y comportamiento de la app. Aprenderás a estructurar datos mediante TypeScript, crear un formulario reactivo con validaciones integradas y programar las funciones que manipulan las tareas de reparto.
 
 ## 💡 Conceptos clave
 * **Architecture Modern (Componentes Autónomos):** Se trabaja con una arquitectura sin módulos independientes (*standalone*), donde declaramos explícitamente las herramientas requeridas.
