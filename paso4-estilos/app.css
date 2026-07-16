@@ -1,0 +1,185 @@
+:root {
+  --primario: #2563eb;
+  --exito: #16a34a;
+  --peligro: #dc2626;
+  --fondo: #f8fafc;
+  --tarjeta: #ffffff;
+  --texto: #1e293b;
+}
+
+body {
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  background-color: #f8fafc;
+  margin: 0;
+  padding: 0;
+  color: #1e293b;
+}
+
+.contenedor-principal {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+h1 { 
+  margin: 0; 
+  color: #2563eb; 
+}
+
+header p { 
+  margin: 5px 0 0 0; 
+  color: #64748b; 
+}
+
+section {
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+  margin-bottom: 25px;
+}
+
+h2 {
+  margin-top: 0; 
+  font-size: 1.2rem; 
+  color: #334155; 
+}
+
+/* Estilos de los Formularios */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+input, select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  box-sizing: border-box;
+  font-size: 1rem;
+}
+
+button {
+  padding: 12px;
+  background-color: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+button:disabled {
+  background-color: #cbd5e1;
+  cursor: not-allowed;
+}
+
+.error {
+  color: #dc2626;
+  font-size: 0.85rem;
+  margin-top: 5px;
+  display: block;
+}
+
+/* Lista y Tarjetas Responsivas (Diseño Multiplataforma) */
+.lista-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.tarjeta-tarea {
+  background: #f1f5f9;
+  padding: 15px;
+  border-radius: 8px;
+  border-left: 5px solid #2563eb;
+  display: flex;
+  flex-direction: column; /* Diseño vertical por defecto para móviles */
+  justify-content: space-between;
+  gap: 10px;
+  transition: all 0.3s ease;
+}
+
+.tarjeta-tarea.completada {
+  border-left-color: #16a34a;
+  opacity: 0.7;
+}
+
+.tarjeta-tarea.completada h3 {
+  text-decoration: line-through;
+  color: #64748b;
+}
+
+.info-tarea h3 { 
+  margin: 0 0 5px 0; 
+  font-size: 1.1rem; 
+}
+
+.etiqueta {
+  background: #e2e8f0;
+  padding: 3px 8px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: bold;
+  color: #475569;
+}
+
+.btn-accion {
+  padding: 8px 12px;
+  font-size: 0.9rem;
+  background: #cbd5e1;
+  color: #1e293b;
+}
+
+.tarjeta-tarea.completada .btn-accion {
+  background: #e2e8f0;
+}
+
+.btn-sincronizar {
+  width: 100%;
+  background-color: #16a34a;
+}
+
+.lista-vacia {
+  text-align: center;
+  color: #64748b;
+  font-style: italic;
+}
+
+/* Media Query: Pasa de vista móvil vertical a vista de escritorio horizontal */
+@media (min-width: 600px) {
+  form {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+  
+  .campo { 
+    flex: 2; 
+  }
+  
+  form select { 
+    flex: 1; 
+  }
+  
+  form button { 
+    width: auto; 
+    height: 42px; 
+  }
+  
+  .tarjeta-tarea {
+    flex-direction: row; /* Horizontal en pantallas más grandes */
+    align-items: center;
+  }
+  
+  .btn-accion { 
+    width: auto; 
+  }
+}

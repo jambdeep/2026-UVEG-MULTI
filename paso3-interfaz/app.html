@@ -1,0 +1,62 @@
+<div class="contenedor-principal">
+  <header>
+    <h1>Panel del Repartidor</h1>
+    <p>Gestiona tus rutas y entregas diarias</p>
+  </header>
+
+  <!-- Sección 1: Formulario para añadir tareas -->
+  <section class="seccion-formulario">
+    <h2>Nueva Ruta de Entrega</h2>
+    <form [formGroup]="formTarea" (ngSubmit)="agregarTarea()">
+      <div class="campo">
+        <input formControlName="nuevoTitulo" placeholder="Ej. Entregar paquete en el centro..." />
+        
+        <!-- Mensaje de error dinámico con @if -->
+        @if (formTarea.get('nuevoTitulo')?.invalid && formTarea.get('nuevoTitulo')?.touched) {
+          <small class="error">El destino debe tener al menos 5 caracteres.</small>
+        }
+      </div>
+      
+      <div class="campo">
+        <select formControlName="nuevaCategoria">
+          <option value="General">General</option>
+          <option value="Urgente">Urgente</option>
+          <option value="Comida">Comida</option>
+          <option value="Oficina">Oficina</option>
+        </select>
+      </div>
+      <button type="submit" [disabled]="formTarea.invalid">Asignar Ruta</button>
+    </form>
+  </section>
+
+  <!-- Sección 2: Lista interactiva de tareas -->
+  <section class="seccion-lista">
+    <h2>Listado de Entregas</h2>
+    <div class="lista-grid">
+      <!-- Bucle moderno @for para iterar elementos -->
+      @for (tarea of tareas; track tarea.id) {
+        <!-- Directiva de atributo [class.completada] para estilos dinámicos -->
+        <div class="tarjeta-tarea" [class.completada]="tarea.completada">
+          <div class="info-tarea">
+            <h3>{{ tarea.titulo | uppercase }}</h3> <!-- Uso de Pipe nativo -->
+            <span class="etiqueta">{{ tarea.categoria }}</span>
+          </div>
+          
+          <!-- Manejo de Eventos al hacer clic -->
+          <button class="btn-accion" (click)="marcarComoCompletada(tarea.id)">
+            {{ tarea.completada ? 'Reabrir' : 'Entregado' }}
+          </button>
+        </div>
+      } @empty {
+        <p class="lista-vacia">No tienes rutas asignadas por ahora.</p>
+      }
+    </div>
+  </section>
+
+  <!-- Sección 3: Conexión externa simulada -->
+  <footer>
+    <button class="btn-sincronizar" (click)="sincronizarConServidor()">
+      Sincronizar con el Servidor
+    </button>
+  </footer>
+</div>
